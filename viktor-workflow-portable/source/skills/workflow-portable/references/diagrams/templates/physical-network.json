@@ -1,0 +1,135 @@
+{
+  "id": "physical-network",
+  "title": "Physical topology: separate from security policy",
+  "family": "network",
+  "notation": "Physical sites / links",
+  "question": "Which physical links and redundancy exist?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid arrow: labeled relationship; dashed frame: explicit boundary; example only",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Physical links are illustrative. No claim of verified capacity, encryption, RF coverage or independence; obtain engineering evidence.",
+  "nodes": [
+    {
+      "id": "site_a",
+      "label": "Site A router",
+      "x": 140,
+      "y": 200,
+      "width": 150,
+      "height": 64,
+      "zone": "site_a_zone",
+      "kind": "box"
+    },
+    {
+      "id": "switch_a",
+      "label": "Access switch A",
+      "x": 140,
+      "y": 390,
+      "width": 150,
+      "height": 64,
+      "zone": "site_a_zone",
+      "kind": "box"
+    },
+    {
+      "id": "site_b",
+      "label": "Site B router",
+      "x": 720,
+      "y": 200,
+      "width": 150,
+      "height": 64,
+      "zone": "site_b_zone",
+      "kind": "box"
+    },
+    {
+      "id": "switch_b",
+      "label": "Access switch B",
+      "x": 720,
+      "y": 390,
+      "width": 150,
+      "height": 64,
+      "zone": "site_b_zone",
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "primary_link",
+      "source": "site_a",
+      "target": "site_b",
+      "label": "Fiber / capacity TBD / primary",
+      "kind": "relation"
+    },
+    {
+      "id": "local_a",
+      "source": "site_a",
+      "target": "switch_a",
+      "label": "Copper / local",
+      "kind": "relation"
+    },
+    {
+      "id": "local_b",
+      "source": "site_b",
+      "target": "switch_b",
+      "label": "Copper / local",
+      "kind": "relation"
+    },
+    {
+      "id": "backup_link",
+      "source": "switch_a",
+      "target": "switch_b",
+      "label": "Independent backup medium TBD",
+      "kind": "relation",
+      "points": [
+        [
+          290,
+          422
+        ],
+        [
+          500,
+          422
+        ],
+        [
+          500,
+          530
+        ],
+        [
+          795,
+          530
+        ],
+        [
+          795,
+          454
+        ]
+      ],
+      "label_position": [
+        550,
+        550
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "site_a_zone",
+      "label": "Physical site A",
+      "x": 90,
+      "y": 100,
+      "width": 300,
+      "height": 400
+    },
+    {
+      "id": "site_b_zone",
+      "label": "Physical site B",
+      "x": 650,
+      "y": 100,
+      "width": 340,
+      "height": 400
+    }
+  ],
+  "canvas": [
+    1100,
+    700
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "c4-containers",
+  "title": "C4 containers: async order processing",
+  "family": "c4",
+  "notation": "C4 container",
+  "question": "Which applications and stores own each responsibility?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid arrow: labeled relationship; dashed frame: explicit boundary; example only",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "person",
+      "label": "Customer",
+      "x": 30,
+      "y": 300,
+      "width": 120,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "web",
+      "label": "Web application\n[Browser]",
+      "x": 220,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "system",
+      "kind": "box"
+    },
+    {
+      "id": "api",
+      "label": "Order API\n[Application]",
+      "x": 450,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "system",
+      "kind": "box"
+    },
+    {
+      "id": "queue",
+      "label": "Event queue\n[Message broker]",
+      "x": 450,
+      "y": 350,
+      "width": 150,
+      "height": 64,
+      "zone": "system",
+      "kind": "box"
+    },
+    {
+      "id": "worker",
+      "label": "Order worker\n[Application]",
+      "x": 700,
+      "y": 350,
+      "width": 150,
+      "height": 64,
+      "zone": "system",
+      "kind": "box"
+    },
+    {
+      "id": "database",
+      "label": "Order store\n[Database]",
+      "x": 700,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "system",
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "browser",
+      "source": "person",
+      "target": "web",
+      "label": "Uses HTTPS",
+      "kind": "relation"
+    },
+    {
+      "id": "request",
+      "source": "web",
+      "target": "api",
+      "label": "HTTPS / orders",
+      "kind": "relation"
+    },
+    {
+      "id": "persist",
+      "source": "api",
+      "target": "database",
+      "label": "Read/write owned data",
+      "kind": "relation"
+    },
+    {
+      "id": "publish",
+      "source": "api",
+      "target": "queue",
+      "label": "Publish order event",
+      "kind": "relation"
+    },
+    {
+      "id": "consume",
+      "source": "queue",
+      "target": "worker",
+      "label": "Deliver at least once",
+      "kind": "relation"
+    },
+    {
+      "id": "work",
+      "source": "worker",
+      "target": "database",
+      "label": "Idempotent update",
+      "kind": "relation"
+    }
+  ],
+  "zones": [
+    {
+      "id": "system",
+      "label": "Order system boundary",
+      "x": 190,
+      "y": 90,
+      "width": 820,
+      "height": 430
+    }
+  ],
+  "canvas": [
+    1100,
+    700
+  ]
+}

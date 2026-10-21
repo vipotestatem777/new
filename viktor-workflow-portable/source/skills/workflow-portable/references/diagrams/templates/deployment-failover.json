@@ -1,0 +1,238 @@
+{
+  "id": "deployment-failover",
+  "title": "Deployment: two zones and restore boundary",
+  "family": "reliability",
+  "notation": "Deployment / failover topology",
+  "question": "Which runtime placements and failure domains matter?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid arrow: labeled relationship; dashed frame: explicit boundary; example only",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "client",
+      "label": "Client",
+      "x": 30,
+      "y": 250,
+      "width": 120,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "edge",
+      "label": "Ingress\nTLS termination",
+      "x": 210,
+      "y": 250,
+      "width": 150,
+      "height": 64,
+      "zone": "front",
+      "kind": "box"
+    },
+    {
+      "id": "app_a",
+      "label": "Application A",
+      "x": 430,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "zone_a",
+      "kind": "box"
+    },
+    {
+      "id": "db_a",
+      "label": "Primary store",
+      "x": 430,
+      "y": 350,
+      "width": 150,
+      "height": 64,
+      "zone": "zone_a",
+      "kind": "box"
+    },
+    {
+      "id": "app_b",
+      "label": "Application B",
+      "x": 730,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "zone_b",
+      "kind": "box"
+    },
+    {
+      "id": "db_b",
+      "label": "Replica store",
+      "x": 730,
+      "y": 350,
+      "width": 150,
+      "height": 64,
+      "zone": "zone_b",
+      "kind": "box"
+    },
+    {
+      "id": "backup",
+      "label": "Isolated backup\nRestore tested separately",
+      "x": 730,
+      "y": 550,
+      "width": 220,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "in",
+      "source": "client",
+      "target": "edge",
+      "label": "HTTPS 443",
+      "kind": "relation"
+    },
+    {
+      "id": "route_a",
+      "source": "edge",
+      "target": "app_a",
+      "label": "Health-based routing",
+      "kind": "relation",
+      "points": [
+        [
+          360,
+          270
+        ],
+        [
+          395,
+          270
+        ],
+        [
+          395,
+          192
+        ],
+        [
+          430,
+          192
+        ]
+      ],
+      "label_position": [
+        330,
+        240
+      ]
+    },
+    {
+      "id": "route_b",
+      "source": "edge",
+      "target": "app_b",
+      "label": "Health-based routing",
+      "kind": "relation",
+      "points": [
+        [
+          360,
+          290
+        ],
+        [
+          680,
+          290
+        ],
+        [
+          680,
+          192
+        ],
+        [
+          730,
+          192
+        ]
+      ],
+      "label_position": [
+        600,
+        278
+      ]
+    },
+    {
+      "id": "write_a",
+      "source": "app_a",
+      "target": "db_a",
+      "label": "Primary writes",
+      "kind": "relation",
+      "label_position": [
+        455,
+        310
+      ]
+    },
+    {
+      "id": "replicate",
+      "source": "db_a",
+      "target": "db_b",
+      "label": "Replication; measured lag",
+      "kind": "relation"
+    },
+    {
+      "id": "failover",
+      "source": "app_b",
+      "target": "db_b",
+      "label": "After promoted ownership",
+      "kind": "relation",
+      "label_position": [
+        910,
+        300
+      ]
+    },
+    {
+      "id": "save",
+      "source": "db_a",
+      "target": "backup",
+      "label": "Bounded backup channel",
+      "kind": "relation",
+      "points": [
+        [
+          505,
+          414
+        ],
+        [
+          505,
+          582
+        ],
+        [
+          730,
+          582
+        ]
+      ],
+      "label_position": [
+        580,
+        570
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "front",
+      "label": "Ingress zone",
+      "x": 180,
+      "y": 100,
+      "width": 210,
+      "height": 400
+    },
+    {
+      "id": "zone_a",
+      "label": "Failure domain A",
+      "x": 410,
+      "y": 85,
+      "width": 250,
+      "height": 420
+    },
+    {
+      "id": "zone_b",
+      "label": "Failure domain B",
+      "x": 700,
+      "y": 85,
+      "width": 290,
+      "height": 420
+    }
+  ],
+  "canvas": [
+    1100,
+    760
+  ]
+}

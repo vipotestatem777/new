@@ -1,0 +1,16 @@
+@startuml
+node "Zone A" {
+  component "Application A" as a
+  database "Primary store" as primary
+}
+node "Zone B" {
+  component "Application B" as b
+  database "Replica store" as replica
+}
+component "Ingress" as ingress
+ingress --> a : health-based routing
+ingress --> b : health-based routing
+a --> primary : owned writes
+primary --> replica : replication (lag monitored)
+b --> replica : after promotion only
+@enduml

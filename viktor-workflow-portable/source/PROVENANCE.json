@@ -1,0 +1,19 @@
+{
+  "package": "viktor-workflow-portable",
+  "version": "0.1.0",
+  "prepared_at": "2026-10-21",
+  "publication": "Owner approved public distribution of this clean package; final publication readback recorded outside the immutable package",
+  "original_materials": "New generic instructions, BA/recovery templates and verifier authored for this clean package; existing synthetic diagrams/exporter originally authored for Workflow and separately MIT licensed.",
+  "diagram_origin_version": "2.11.0",
+  "diagram_origin_source_commit": "f42dd71abcf6620322582ea98ee82f79d3404252",
+  "history_review": "Known original diagram creation provenance, license scope and selected file hashes reviewed; only allowlisted current original materials copied. No private Git objects/history, profile assets, owner instructions, chat/project journals or upstream snapshots included. This is not an audit of every upstream commit.",
+  "upstream": "Only primary URLs/pins/license metadata retained; no third-party code, icons, installers or engine binaries. Native reference examples are original synthetic text.",
+  "scope": "Reduced general core, not a copy of all private settings; recipient uses own account and permissions.",
+  "license": "MIT for included original materials; no relicensing of upstream engines/specifications.",
+  "limits": [
+    "No native engine runtime or physical new-computer test",
+    "No cloud installation under a second account performed",
+    "Marker scan does not prove absence of all possible secrets"
+  ],
+  "public_privacy_review": "All included text, including the verifier itself, checked for owner-specific markers; the public verifier uses generic patterns only."
+}

@@ -1,0 +1,238 @@
+{
+  "id": "secure-network",
+  "title": "Logical secure network: allowed flows",
+  "family": "network",
+  "notation": "Logical network / trust zones",
+  "question": "Which explicitly allowed flows cross trust boundaries?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid arrow: labeled relationship; dashed frame: explicit boundary; example only",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "internet",
+      "label": "Untrusted client",
+      "x": 30,
+      "y": 160,
+      "width": 145,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "proxy",
+      "label": "Reverse proxy\n[DMZ]",
+      "x": 230,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "dmz",
+      "kind": "box"
+    },
+    {
+      "id": "application",
+      "label": "Application\n[Service zone]",
+      "x": 490,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "apps",
+      "kind": "box"
+    },
+    {
+      "id": "data",
+      "label": "Database\n[Data zone]",
+      "x": 790,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": "data_zone",
+      "kind": "box"
+    },
+    {
+      "id": "admin",
+      "label": "Admin workstation",
+      "x": 30,
+      "y": 430,
+      "width": 145,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "bastion",
+      "label": "Management gateway\n[MFA / policy]",
+      "x": 230,
+      "y": 430,
+      "width": 150,
+      "height": 64,
+      "zone": "management",
+      "kind": "box"
+    },
+    {
+      "id": "logs",
+      "label": "Security logs\n[Audit zone]",
+      "x": 790,
+      "y": 430,
+      "width": 150,
+      "height": 64,
+      "zone": "audit",
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "public",
+      "source": "internet",
+      "target": "proxy",
+      "label": "TLS 443",
+      "kind": "relation"
+    },
+    {
+      "id": "ingress",
+      "source": "proxy",
+      "target": "application",
+      "label": "mTLS 8443",
+      "kind": "relation"
+    },
+    {
+      "id": "db",
+      "source": "application",
+      "target": "data",
+      "label": "DB protocol 5432 / TLS",
+      "kind": "relation"
+    },
+    {
+      "id": "admin_flow",
+      "source": "admin",
+      "target": "bastion",
+      "label": "Approved management",
+      "kind": "relation"
+    },
+    {
+      "id": "manage",
+      "source": "bastion",
+      "target": "application",
+      "label": "Scoped control",
+      "kind": "relation",
+      "points": [
+        [
+          380,
+          462
+        ],
+        [
+          430,
+          462
+        ],
+        [
+          430,
+          270
+        ],
+        [
+          565,
+          270
+        ],
+        [
+          565,
+          224
+        ]
+      ],
+      "label_position": [
+        510,
+        290
+      ]
+    },
+    {
+      "id": "audit_flow",
+      "source": "application",
+      "target": "logs",
+      "label": "Sanitized audit",
+      "kind": "relation",
+      "points": [
+        [
+          640,
+          192
+        ],
+        [
+          690,
+          192
+        ],
+        [
+          690,
+          462
+        ],
+        [
+          790,
+          462
+        ]
+      ],
+      "label_position": [
+        720,
+        340
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "dmz",
+      "label": "DMZ boundary",
+      "x": 205,
+      "y": 85,
+      "width": 200,
+      "height": 220
+    },
+    {
+      "id": "apps",
+      "label": "Service boundary",
+      "x": 465,
+      "y": 85,
+      "width": 205,
+      "height": 220
+    },
+    {
+      "id": "data_zone",
+      "label": "Data boundary",
+      "x": 765,
+      "y": 85,
+      "width": 260,
+      "height": 220
+    },
+    {
+      "id": "management",
+      "label": "Management boundary",
+      "x": 205,
+      "y": 355,
+      "width": 230,
+      "height": 230
+    },
+    {
+      "id": "audit",
+      "label": "Audit boundary",
+      "x": 765,
+      "y": 355,
+      "width": 260,
+      "height": 230
+    }
+  ],
+  "canvas": [
+    1100,
+    700
+  ],
+  "constraints": {
+    "forbidden_direct_flows": [
+      [
+        "internet",
+        "data"
+      ],
+      [
+        "internet",
+        "application"
+      ]
+    ],
+    "default_policy": "deny unless explicitly listed; reference only"
+  }
+}

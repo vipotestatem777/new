@@ -1,0 +1,390 @@
+{
+  "id": "bpmn-collaboration",
+  "title": "BPMN collaboration: review, rework, timeout",
+  "family": "bpmn",
+  "notation": "BPMN 2.0 collaboration",
+  "question": "How do two participants exchange a request and exactly one outcome?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid: sequence inside pool; dashed: message across pools; X: exclusive choice; timer interrupts review",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Non-executable reference collaboration. Bounded flow/reference/DI checks plus manual notation review; no engine deployment, XSD certificate or business-process completeness claim.",
+  "nodes": [
+    {
+      "id": "r_start",
+      "label": "Request",
+      "x": 65,
+      "y": 150,
+      "width": 36,
+      "height": 36,
+      "zone": "requester",
+      "kind": "start"
+    },
+    {
+      "id": "send_request",
+      "label": "Send request",
+      "x": 145,
+      "y": 140,
+      "width": 150,
+      "height": 60,
+      "zone": "requester",
+      "kind": "send"
+    },
+    {
+      "id": "receive_result",
+      "label": "Receive outcome",
+      "x": 760,
+      "y": 140,
+      "width": 170,
+      "height": 60,
+      "zone": "requester",
+      "kind": "receive"
+    },
+    {
+      "id": "r_end",
+      "label": "Done",
+      "x": 1140,
+      "y": 150,
+      "width": 36,
+      "height": 36,
+      "zone": "requester",
+      "kind": "end"
+    },
+    {
+      "id": "p_start",
+      "label": "Start",
+      "x": 65,
+      "y": 420,
+      "width": 36,
+      "height": 36,
+      "zone": "processor",
+      "kind": "start"
+    },
+    {
+      "id": "receive_request",
+      "label": "Receive request",
+      "x": 145,
+      "y": 405,
+      "width": 155,
+      "height": 60,
+      "zone": "processor",
+      "kind": "receive"
+    },
+    {
+      "id": "review",
+      "label": "Review request",
+      "x": 380,
+      "y": 405,
+      "width": 160,
+      "height": 60,
+      "zone": "processor",
+      "kind": "task"
+    },
+    {
+      "id": "timer",
+      "label": "24h",
+      "x": 510,
+      "y": 450,
+      "width": 32,
+      "height": 32,
+      "zone": "processor",
+      "kind": "timer",
+      "attached_to": "review",
+      "label_position": [
+        560,
+        495
+      ]
+    },
+    {
+      "id": "decision",
+      "label": "Decision",
+      "x": 635,
+      "y": 410,
+      "width": 48,
+      "height": 48,
+      "zone": "processor",
+      "kind": "xor"
+    },
+    {
+      "id": "send_approved",
+      "label": "Send approved",
+      "x": 805,
+      "y": 405,
+      "width": 170,
+      "height": 60,
+      "zone": "processor",
+      "kind": "send"
+    },
+    {
+      "id": "send_rejected",
+      "label": "Send rejected",
+      "x": 805,
+      "y": 615,
+      "width": 170,
+      "height": 60,
+      "zone": "processor",
+      "kind": "send"
+    },
+    {
+      "id": "p_end",
+      "label": "Complete",
+      "x": 1140,
+      "y": 420,
+      "width": 36,
+      "height": 36,
+      "zone": "processor",
+      "kind": "end"
+    }
+  ],
+  "edges": [
+    {
+      "id": "r1",
+      "source": "r_start",
+      "target": "send_request",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "r2",
+      "source": "send_request",
+      "target": "receive_result",
+      "label": "Wait for outcome",
+      "kind": "sequence"
+    },
+    {
+      "id": "r3",
+      "source": "receive_result",
+      "target": "r_end",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "p1",
+      "source": "p_start",
+      "target": "receive_request",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "p2",
+      "source": "receive_request",
+      "target": "review",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "p3",
+      "source": "review",
+      "target": "decision",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "approve",
+      "source": "decision",
+      "target": "send_approved",
+      "label": "approved",
+      "kind": "sequence",
+      "condition": "approved == true"
+    },
+    {
+      "id": "rework",
+      "source": "decision",
+      "target": "review",
+      "label": "rework",
+      "kind": "sequence",
+      "condition": "needsRework == true",
+      "points": [
+        [
+          659,
+          410
+        ],
+        [
+          659,
+          375
+        ],
+        [
+          460,
+          375
+        ],
+        [
+          460,
+          405
+        ]
+      ],
+      "label_position": [
+        555,
+        367
+      ]
+    },
+    {
+      "id": "reject",
+      "source": "decision",
+      "target": "send_rejected",
+      "label": "otherwise",
+      "kind": "sequence",
+      "default": true,
+      "label_position": [
+        710,
+        575
+      ]
+    },
+    {
+      "id": "timeout",
+      "source": "timer",
+      "target": "send_rejected",
+      "label": "interrupt after 24h",
+      "kind": "sequence",
+      "points": [
+        [
+          526,
+          482
+        ],
+        [
+          526,
+          645
+        ],
+        [
+          805,
+          645
+        ]
+      ],
+      "label_position": [
+        640,
+        634
+      ]
+    },
+    {
+      "id": "p4",
+      "source": "send_approved",
+      "target": "p_end",
+      "label": "",
+      "kind": "sequence"
+    },
+    {
+      "id": "p5",
+      "source": "send_rejected",
+      "target": "p_end",
+      "label": "",
+      "kind": "sequence",
+      "points": [
+        [
+          975,
+          645
+        ],
+        [
+          1158,
+          645
+        ],
+        [
+          1158,
+          456
+        ]
+      ]
+    },
+    {
+      "id": "request_message",
+      "source": "send_request",
+      "target": "receive_request",
+      "label": "request",
+      "kind": "message",
+      "points": [
+        [
+          220,
+          200
+        ],
+        [
+          220,
+          405
+        ]
+      ],
+      "label_position": [
+        255,
+        325
+      ]
+    },
+    {
+      "id": "approved_message",
+      "source": "send_approved",
+      "target": "receive_result",
+      "label": "approved outcome",
+      "kind": "message",
+      "points": [
+        [
+          890,
+          405
+        ],
+        [
+          890,
+          200
+        ]
+      ],
+      "label_position": [
+        975,
+        325
+      ]
+    },
+    {
+      "id": "rejected_message",
+      "source": "send_rejected",
+      "target": "receive_result",
+      "label": "rejected outcome",
+      "kind": "message",
+      "points": [
+        [
+          890,
+          615
+        ],
+        [
+          890,
+          560
+        ],
+        [
+          1040,
+          560
+        ],
+        [
+          1040,
+          250
+        ],
+        [
+          845,
+          250
+        ],
+        [
+          845,
+          200
+        ]
+      ],
+      "label_position": [
+        1130,
+        555
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "id": "requester",
+      "label": "Requester participant",
+      "x": 35,
+      "y": 90,
+      "width": 1240,
+      "height": 210
+    },
+    {
+      "id": "processor",
+      "label": "Processor participant",
+      "x": 35,
+      "y": 345,
+      "width": 1240,
+      "height": 420
+    }
+  ],
+  "canvas": [
+    1320,
+    860
+  ]
+}

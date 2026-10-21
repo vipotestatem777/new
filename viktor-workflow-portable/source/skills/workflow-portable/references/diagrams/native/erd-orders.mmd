@@ -1,0 +1,15 @@
+erDiagram
+  CUSTOMER ||--o{ ORDER : places
+  ORDER ||--|{ ORDER_LINE : contains
+  CUSTOMER {
+    string customer_id PK
+  }
+  ORDER {
+    string order_id PK
+    string customer_id FK
+  }
+  ORDER_LINE {
+    string order_id PK,FK
+    int line_no PK
+    decimal quantity
+  }

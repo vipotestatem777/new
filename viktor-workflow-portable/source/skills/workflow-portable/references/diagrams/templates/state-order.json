@@ -1,0 +1,126 @@
+{
+  "id": "state-order",
+  "title": "UML state machine: order lifecycle",
+  "family": "state",
+  "notation": "UML state machine",
+  "question": "Which order events and guards permit transitions?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Filled circle: initial; double circle: final; arrow label: event [guard]",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "initial",
+      "label": "Initial",
+      "x": 40,
+      "y": 220,
+      "width": 32,
+      "height": 32,
+      "zone": null,
+      "kind": "initial"
+    },
+    {
+      "id": "draft",
+      "label": "Draft",
+      "x": 140,
+      "y": 200,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "validated",
+      "label": "Validated",
+      "x": 400,
+      "y": 200,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "accepted",
+      "label": "Accepted",
+      "x": 700,
+      "y": 110,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "rejected",
+      "label": "Rejected",
+      "x": 700,
+      "y": 330,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "final",
+      "label": "Final",
+      "x": 970,
+      "y": 220,
+      "width": 36,
+      "height": 36,
+      "zone": null,
+      "kind": "final"
+    }
+  ],
+  "edges": [
+    {
+      "id": "init",
+      "source": "initial",
+      "target": "draft",
+      "label": "",
+      "kind": "relation"
+    },
+    {
+      "id": "submit",
+      "source": "draft",
+      "target": "validated",
+      "label": "submit [valid]",
+      "kind": "relation"
+    },
+    {
+      "id": "approve",
+      "source": "validated",
+      "target": "accepted",
+      "label": "approve [authorized]",
+      "kind": "relation"
+    },
+    {
+      "id": "deny",
+      "source": "validated",
+      "target": "rejected",
+      "label": "reject [authorized]",
+      "kind": "relation"
+    },
+    {
+      "id": "complete",
+      "source": "accepted",
+      "target": "final",
+      "label": "archive",
+      "kind": "relation"
+    },
+    {
+      "id": "cancel",
+      "source": "rejected",
+      "target": "final",
+      "label": "archive",
+      "kind": "relation"
+    }
+  ],
+  "zones": [],
+  "canvas": [
+    1100,
+    700
+  ]
+}

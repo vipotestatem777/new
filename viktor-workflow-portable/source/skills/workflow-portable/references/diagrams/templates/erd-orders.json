@@ -1,0 +1,68 @@
+{
+  "id": "erd-orders",
+  "title": "Logical ERD: order ownership and lines",
+  "family": "erd",
+  "notation": "Logical entity relationship",
+  "question": "Which keys and cardinalities constrain orders?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "PK/FK shown explicitly; association labels state cardinality; not a physical schema migration",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "customer",
+      "label": "Customer\nPK customer_id\nunique contact_ref",
+      "x": 90,
+      "y": 180,
+      "width": 230,
+      "height": 110,
+      "zone": null,
+      "kind": "entity"
+    },
+    {
+      "id": "order",
+      "label": "Order\nPK order_id\nFK customer_id",
+      "x": 430,
+      "y": 180,
+      "width": 230,
+      "height": 110,
+      "zone": null,
+      "kind": "entity"
+    },
+    {
+      "id": "line",
+      "label": "OrderLine\nPK (order_id, line_no)\nFK order_id",
+      "x": 770,
+      "y": 180,
+      "width": 260,
+      "height": 110,
+      "zone": null,
+      "kind": "entity"
+    }
+  ],
+  "edges": [
+    {
+      "id": "owns",
+      "source": "customer",
+      "target": "order",
+      "label": "Customer 1 : Order 0..*",
+      "kind": "relation"
+    },
+    {
+      "id": "contains",
+      "source": "order",
+      "target": "line",
+      "label": "Order 1 : Line 1..*",
+      "kind": "relation"
+    }
+  ],
+  "zones": [],
+  "canvas": [
+    1100,
+    700
+  ]
+}

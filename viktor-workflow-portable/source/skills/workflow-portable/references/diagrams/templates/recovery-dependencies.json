@@ -1,0 +1,102 @@
+{
+  "id": "recovery-dependencies",
+  "title": "Recovery order and independent gates",
+  "family": "reliability",
+  "notation": "Recovery dependency graph",
+  "question": "Which acceptance gates precede safe restoration?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Dependency arrows are acceptance prerequisites, not a timed execution schedule",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "snapshot",
+      "label": "Snapshot identity\nand checksum",
+      "x": 60,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "restore",
+      "label": "Restore isolated\ncopy",
+      "x": 330,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "integrity",
+      "label": "Integrity / contract\nchecks",
+      "x": 610,
+      "y": 160,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "accept",
+      "label": "Owner acceptance\nand controlled switch",
+      "x": 880,
+      "y": 160,
+      "width": 190,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "rollback",
+      "label": "Rollback path\nverified before switch",
+      "x": 610,
+      "y": 390,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "snapshot_restore",
+      "source": "snapshot",
+      "target": "restore",
+      "label": "Verified input",
+      "kind": "relation"
+    },
+    {
+      "id": "restore_check",
+      "source": "restore",
+      "target": "integrity",
+      "label": "No production writes",
+      "kind": "relation"
+    },
+    {
+      "id": "checks_accept",
+      "source": "integrity",
+      "target": "accept",
+      "label": "Acceptance evidence",
+      "kind": "relation"
+    },
+    {
+      "id": "rollback_accept",
+      "source": "rollback",
+      "target": "accept",
+      "label": "Recovery precondition",
+      "kind": "relation"
+    }
+  ],
+  "zones": [],
+  "canvas": [
+    1100,
+    700
+  ]
+}

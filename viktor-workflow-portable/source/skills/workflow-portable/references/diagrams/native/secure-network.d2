@@ -1,0 +1,15 @@
+# Original fictional model. Labels are intent, not a verified firewall policy.
+direction: right
+client: Untrusted client
+dmz: DMZ {
+  proxy: Reverse proxy
+}
+service: Service zone {
+  api: Application
+}
+data: Data zone {
+  database: Database
+}
+client -> dmz.proxy: TLS 443
+dmz.proxy -> service.api: mTLS 8443
+service.api -> data.database: DB protocol 5432 / TLS

@@ -1,0 +1,111 @@
+{
+  "id": "sequence-retry",
+  "title": "UML sequence: idempotency and timeout",
+  "family": "sequence",
+  "notation": "UML sequence",
+  "question": "What happens after a timeout with an uncertain write outcome?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Vertical lifelines; arrows ordered by vertical time; dashed arrows are responses; no duplicate write on retry",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "caller",
+      "label": "Caller",
+      "x": 80,
+      "y": 100,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "api",
+      "label": "API",
+      "x": 390,
+      "y": 100,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "store",
+      "label": "Store",
+      "x": 760,
+      "y": 100,
+      "width": 150,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "msg1",
+      "source": "caller",
+      "target": "api",
+      "label": "1. Create (idempotency key)",
+      "kind": "call",
+      "y": 220
+    },
+    {
+      "id": "msg2",
+      "source": "api",
+      "target": "store",
+      "label": "2. Insert-if-absent",
+      "kind": "call",
+      "y": 290
+    },
+    {
+      "id": "msg3",
+      "source": "store",
+      "target": "api",
+      "label": "3. Existing or created ID",
+      "kind": "return",
+      "y": 360
+    },
+    {
+      "id": "msg4",
+      "source": "api",
+      "target": "caller",
+      "label": "4. Response attempt (delivery uncertain)",
+      "kind": "return",
+      "y": 430
+    },
+    {
+      "id": "msg5",
+      "source": "caller",
+      "target": "api",
+      "label": "5. Retry SAME key",
+      "kind": "call",
+      "y": 520
+    },
+    {
+      "id": "msg6",
+      "source": "api",
+      "target": "caller",
+      "label": "6. Same resource ID",
+      "kind": "return",
+      "y": 590
+    }
+  ],
+  "zones": [],
+  "canvas": [
+    1100,
+    760
+  ],
+  "frames": [
+    {
+      "label": "Retry after timeout; reconcile outcome, preserve key",
+      "x": 40,
+      "y": 480,
+      "width": 990,
+      "height": 155
+    }
+  ]
+}

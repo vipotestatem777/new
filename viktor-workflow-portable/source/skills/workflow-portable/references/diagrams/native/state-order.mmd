@@ -1,0 +1,7 @@
+stateDiagram-v2
+  [*] --> Draft
+  Draft --> Validated: submit [valid]
+  Validated --> Accepted: approve [authorized]
+  Validated --> Rejected: reject [authorized]
+  Accepted --> [*]: archive
+  Rejected --> [*]: archive

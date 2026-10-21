@@ -1,0 +1,127 @@
+{
+  "id": "trust-dfd",
+  "title": "Data flow and trust boundaries",
+  "family": "security",
+  "notation": "DFD with labeled trust zones",
+  "question": "Where does classified data cross a trust boundary?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Named process/entity/store roles; arrows are classified data flows; dashed frames are trust boundaries",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "actor",
+      "label": "External user\n[Entity]",
+      "x": 30,
+      "y": 190,
+      "width": 145,
+      "height": 64,
+      "zone": null,
+      "kind": "box"
+    },
+    {
+      "id": "gateway",
+      "label": "Gateway\n[Process]",
+      "x": 230,
+      "y": 190,
+      "width": 150,
+      "height": 64,
+      "zone": "edge_zone",
+      "kind": "box"
+    },
+    {
+      "id": "processor",
+      "label": "Order processing\n[Process]",
+      "x": 520,
+      "y": 190,
+      "width": 150,
+      "height": 64,
+      "zone": "trusted",
+      "kind": "box"
+    },
+    {
+      "id": "store",
+      "label": "Order records\n[Data store]",
+      "x": 800,
+      "y": 190,
+      "width": 150,
+      "height": 64,
+      "zone": "trusted",
+      "kind": "box"
+    },
+    {
+      "id": "audit_store",
+      "label": "Audit metadata\n[Data store]",
+      "x": 520,
+      "y": 420,
+      "width": 150,
+      "height": 64,
+      "zone": "audit_zone",
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "input",
+      "source": "actor",
+      "target": "gateway",
+      "label": "Untrusted order input",
+      "kind": "relation"
+    },
+    {
+      "id": "validated",
+      "source": "gateway",
+      "target": "processor",
+      "label": "Validated request / TLS",
+      "kind": "relation"
+    },
+    {
+      "id": "records",
+      "source": "processor",
+      "target": "store",
+      "label": "Business records / scoped identity",
+      "kind": "relation"
+    },
+    {
+      "id": "audit_data",
+      "source": "processor",
+      "target": "audit_store",
+      "label": "Redacted event metadata",
+      "kind": "relation"
+    }
+  ],
+  "zones": [
+    {
+      "id": "edge_zone",
+      "label": "Edge trust boundary",
+      "x": 205,
+      "y": 100,
+      "width": 220,
+      "height": 245
+    },
+    {
+      "id": "trusted",
+      "label": "Application/data trust boundary",
+      "x": 480,
+      "y": 100,
+      "width": 560,
+      "height": 245
+    },
+    {
+      "id": "audit_zone",
+      "label": "Separate audit trust boundary",
+      "x": 480,
+      "y": 365,
+      "width": 300,
+      "height": 225
+    }
+  ],
+  "canvas": [
+    1100,
+    700
+  ]
+}

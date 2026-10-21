@@ -1,0 +1,24 @@
+{
+  "id": "lesson-id",
+  "project": "project-id",
+  "topics": ["analysis"],
+  "status": "candidate",
+  "task": "",
+  "context_versions": "",
+  "hypothesis": "",
+  "action": "",
+  "result_evidence": [],
+  "lesson": "",
+  "applicability": "",
+  "limitations": "",
+  "reviewer": null,
+  "privacy_reviewed": false,
+  "timing": {
+    "estimate_seconds": null,
+    "execution_seconds": null,
+    "permission_wait_seconds": null,
+    "tool_wait_seconds": null,
+    "access_wait_seconds": null,
+    "evidence": []
+  }
+}

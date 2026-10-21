@@ -1,0 +1,15 @@
+@startuml
+' Original synthetic example; no includes or external resources.
+participant Caller
+participant API
+database Store
+Caller -> API : Create (idempotency key)
+API -> Store : Insert-if-absent
+Store --> API : Existing or created ID
+API --> Caller : Response attempt (delivery uncertain)
+note over Caller, API : Caller observes timeout; reconcile outcome
+loop bounded retry after timeout
+  Caller -> API : Retry SAME key
+  API --> Caller : Same resource ID
+end
+@enduml

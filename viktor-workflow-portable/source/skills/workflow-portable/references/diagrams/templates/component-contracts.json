@@ -1,0 +1,111 @@
+{
+  "id": "component-contracts",
+  "title": "Component boundaries: modular application",
+  "family": "component",
+  "notation": "Component / permitted dependency",
+  "question": "Which dependencies are permitted inside one application?",
+  "scope": "Fictional reference system; no real endpoints or credentials",
+  "audience": "Analyst, architect and reviewer",
+  "legend": "Solid arrow: labeled relationship; dashed frame: explicit boundary; example only",
+  "current_target": "synthetic-reference",
+  "owner": "Workflow maintainers",
+  "reviewed_at": "2026-10-21",
+  "update_trigger": "Changed question, contract, boundary, topology, source version or notation semantics",
+  "limitations": "Source/notation review and bounded model checks; not proof of production security or complete formal notation conformance",
+  "nodes": [
+    {
+      "id": "adapter",
+      "label": "HTTP adapter",
+      "x": 100,
+      "y": 150,
+      "width": 150,
+      "height": 64,
+      "zone": "app",
+      "kind": "box"
+    },
+    {
+      "id": "usecase",
+      "label": "Order use case",
+      "x": 400,
+      "y": 150,
+      "width": 150,
+      "height": 64,
+      "zone": "app",
+      "kind": "box"
+    },
+    {
+      "id": "domain",
+      "label": "Order domain",
+      "x": 700,
+      "y": 150,
+      "width": 150,
+      "height": 64,
+      "zone": "app",
+      "kind": "box"
+    },
+    {
+      "id": "port",
+      "label": "Repository port",
+      "x": 400,
+      "y": 360,
+      "width": 150,
+      "height": 64,
+      "zone": "app",
+      "kind": "box"
+    },
+    {
+      "id": "storage",
+      "label": "Storage adapter",
+      "x": 700,
+      "y": 360,
+      "width": 150,
+      "height": 64,
+      "zone": "app",
+      "kind": "box"
+    }
+  ],
+  "edges": [
+    {
+      "id": "invoke",
+      "source": "adapter",
+      "target": "usecase",
+      "label": "Invokes",
+      "kind": "relation"
+    },
+    {
+      "id": "rules",
+      "source": "usecase",
+      "target": "domain",
+      "label": "Applies invariants",
+      "kind": "relation"
+    },
+    {
+      "id": "depends",
+      "source": "usecase",
+      "target": "port",
+      "label": "Depends on contract",
+      "kind": "relation"
+    },
+    {
+      "id": "implements",
+      "source": "storage",
+      "target": "port",
+      "label": "Implements port",
+      "kind": "relation"
+    }
+  ],
+  "zones": [
+    {
+      "id": "app",
+      "label": "One deployable application; no implied microservices",
+      "x": 50,
+      "y": 85,
+      "width": 980,
+      "height": 445
+    }
+  ],
+  "canvas": [
+    1100,
+    700
+  ]
+}

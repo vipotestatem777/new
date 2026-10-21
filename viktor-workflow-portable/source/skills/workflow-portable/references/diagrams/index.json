@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-21",
+  "activation": "Only explicit user request or real decision need; never mandatory",
+  "templates": [
+    {
+      "id": "c4-context",
+      "family": "c4",
+      "topics": [
+        "c4",
+        "architecture"
+      ],
+      "question": "Who interacts with the system and what is external?",
+      "source": "templates/c4-context.json",
+      "exports": [
+        "exports/c4-context.svg",
+        "exports/c4-context.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "structurizr",
+        "drawio"
+      ]
+    },
+    {
+      "id": "c4-containers",
+      "family": "c4",
+      "topics": [
+        "c4",
+        "architecture"
+      ],
+      "question": "Which applications and stores own each responsibility?",
+      "source": "templates/c4-containers.json",
+      "exports": [
+        "exports/c4-containers.svg",
+        "exports/c4-containers.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "structurizr",
+        "drawio"
+      ]
+    },
+    {
+      "id": "component-contracts",
+      "family": "component",
+      "topics": [
+        "component",
+        "architecture"
+      ],
+      "question": "Which dependencies are permitted inside one application?",
+      "source": "templates/component-contracts.json",
+      "exports": [
+        "exports/component-contracts.svg",
+        "exports/component-contracts.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "plantuml",
+        "drawio"
+      ]
+    },
+    {
+      "id": "deployment-failover",
+      "family": "reliability",
+      "topics": [
+        "architecture",
+        "reliability"
+      ],
+      "question": "Which runtime placements and failure domains matter?",
+      "source": "templates/deployment-failover.json",
+      "exports": [
+        "exports/deployment-failover.svg",
+        "exports/deployment-failover.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "drawio",
+        "diagrams"
+      ]
+    },
+    {
+      "id": "secure-network",
+      "family": "network",
+      "topics": [
+        "network",
+        "security"
+      ],
+      "question": "Which explicitly allowed flows cross trust boundaries?",
+      "source": "templates/secure-network.json",
+      "exports": [
+        "exports/secure-network.svg",
+        "exports/secure-network.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "drawio",
+        "d2"
+      ]
+    },
+    {
+      "id": "physical-network",
+      "family": "network",
+      "topics": [
+        "network"
+      ],
+      "question": "Which physical links and redundancy exist?",
+      "source": "templates/physical-network.json",
+      "exports": [
+        "exports/physical-network.svg",
+        "exports/physical-network.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "drawio",
+        "d2"
+      ]
+    },
+    {
+      "id": "trust-dfd",
+      "family": "security",
+      "topics": [
+        "security"
+      ],
+      "question": "Where does classified data cross a trust boundary?",
+      "source": "templates/trust-dfd.json",
+      "exports": [
+        "exports/trust-dfd.svg",
+        "exports/trust-dfd.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "drawio"
+      ]
+    },
+    {
+      "id": "sequence-retry",
+      "family": "sequence",
+      "topics": [
+        "sequence"
+      ],
+      "question": "What happens after a timeout with an uncertain write outcome?",
+      "source": "templates/sequence-retry.json",
+      "exports": [
+        "exports/sequence-retry.svg",
+        "exports/sequence-retry.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "plantuml",
+        "mermaid"
+      ]
+    },
+    {
+      "id": "state-order",
+      "family": "state",
+      "topics": [
+        "state"
+      ],
+      "question": "Which order events and guards permit transitions?",
+      "source": "templates/state-order.json",
+      "exports": [
+        "exports/state-order.svg",
+        "exports/state-order.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "plantuml",
+        "mermaid"
+      ]
+    },
+    {
+      "id": "erd-orders",
+      "family": "erd",
+      "topics": [
+        "erd"
+      ],
+      "question": "Which keys and cardinalities constrain orders?",
+      "source": "templates/erd-orders.json",
+      "exports": [
+        "exports/erd-orders.svg",
+        "exports/erd-orders.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "mermaid",
+        "drawio"
+      ]
+    },
+    {
+      "id": "recovery-dependencies",
+      "family": "reliability",
+      "topics": [
+        "architecture",
+        "reliability"
+      ],
+      "question": "Which acceptance gates precede safe restoration?",
+      "source": "templates/recovery-dependencies.json",
+      "exports": [
+        "exports/recovery-dependencies.svg",
+        "exports/recovery-dependencies.drawio"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "drawio",
+        "diagrams"
+      ]
+    },
+    {
+      "id": "bpmn-collaboration",
+      "family": "bpmn",
+      "topics": [
+        "bpmn"
+      ],
+      "question": "How do two participants exchange a request and exactly one outcome?",
+      "source": "templates/bpmn-collaboration.json",
+      "exports": [
+        "exports/bpmn-collaboration.svg",
+        "exports/bpmn-collaboration.drawio",
+        "exports/bpmn-collaboration.bpmn"
+      ],
+      "verification": "Original offline exporter; model invariant checks; XML parsed; visual review separate; not a third-party renderer certification",
+      "source_ids": [
+        "bpmn-js",
+        "drawio"
+      ]
+    }
+  ],
+  "discovery_types": {
+    "UML": [
+      "use-case",
+      "activity",
+      "class",
+      "object",
+      "package",
+      "composite-structure",
+      "component",
+      "deployment",
+      "sequence",
+      "communication",
+      "state-machine",
+      "timing",
+      "interaction-overview",
+      "profile"
+    ],
+    "C4": [
+      "context",
+      "container",
+      "component",
+      "code",
+      "landscape",
+      "dynamic",
+      "deployment"
+    ],
+    "business": [
+      "BPMN-collaboration",
+      "BPMN-choreography",
+      "DMN-decision-table",
+      "SIPOC",
+      "service-blueprint",
+      "journey",
+      "event-storming"
+    ],
+    "data": [
+      "conceptual-ERD",
+      "logical-ERD",
+      "physical-ERD",
+      "data-lineage",
+      "CRUD-matrix"
+    ],
+    "network-security": [
+      "physical-topology",
+      "logical-topology",
+      "rack",
+      "trust-zone-DFD",
+      "attack-tree",
+      "fault-tree",
+      "recovery-sequence",
+      "RF-link-matrix"
+    ],
+    "planning": [
+      "WBS",
+      "capability-map",
+      "dependency-network",
+      "critical-path"
+    ]
+  },
+  "discovery_limit": "Discovery list is not a promise of rendered templates for every notation; choose one question and relevant source."
+}

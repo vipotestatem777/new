@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-21",
+  "sources": [
+    {
+      "id": "drawio",
+      "license": "Apache-2.0 code; icon/stencil terms separate. Desktop repository currently GPL-3.0.",
+      "types": [
+        "editable-general",
+        "UML-sketch",
+        "BPMN-sketch",
+        "network",
+        "deployment"
+      ],
+      "cost": "Free Desktop and online editor; Confluence/Jira add-ons separate paid/conditional tiers, check current user count.",
+      "docs": [
+        "https://www.drawio.com/docs/manual/editor/offline/",
+        "https://www.drawio.com/docs/manual/export/export-to-svg/"
+      ],
+      "cost_source": "https://drawio-app.com/pricing/",
+      "repository": "jgraph/drawio",
+      "reference_commit": "17b367b91dbab91804f852645788d7ffb46dcb79",
+      "commit_date": "2026-10-18T10:53:02Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "mermaid",
+      "license": "MIT",
+      "types": [
+        "flowchart",
+        "sequence",
+        "state",
+        "class",
+        "ERD",
+        "gantt",
+        "architecture-version-dependent"
+      ],
+      "cost": "Free open-source renderer; Mermaid Chart SaaS and host/model costs are separate.",
+      "docs": [
+        "https://mermaid.js.org/intro/",
+        "https://mermaid.js.org/config/security.html"
+      ],
+      "cost_source": "https://github.com/mermaid-js/mermaid/blob/develop/LICENSE",
+      "repository": "mermaid-js/mermaid",
+      "reference_commit": "6d8921f94f9a12b76586eddcf45a566080d4767e",
+      "commit_date": "2026-10-19T15:05:59Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "plantuml",
+      "license": "GPL-3.0 default/source; LGPL/Apache/EPL/MIT builds differ. Check exact artifact. Output follows source authorship.",
+      "types": [
+        "UML",
+        "sequence",
+        "class",
+        "component",
+        "deployment",
+        "timing",
+        "network"
+      ],
+      "cost": "Free local builds; hosted services/integrations are separate.",
+      "docs": [
+        "https://plantuml.com/faq",
+        "https://plantuml.com/security"
+      ],
+      "cost_source": "https://plantuml.com/faq",
+      "repository": "plantuml/plantuml",
+      "reference_commit": "5808a1c3f9ab70ac5f57bcb65b1a41ea8642bdd6",
+      "commit_date": "2026-10-20T21:21:13Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "bpmn-js",
+      "license": "bpmn.io permissive license with visible watermark condition; not plain MIT.",
+      "types": [
+        "BPMN-2.0-modeler",
+        "BPMN-XML",
+        "SVG-export"
+      ],
+      "cost": "Free toolkit; not an execution engine or a guarantee that hosted products are free.",
+      "docs": [
+        "https://bpmn.io/toolkit/bpmn-js/",
+        "https://bpmn.io/toolkit/bpmn-js/walkthrough/"
+      ],
+      "cost_source": "https://raw.githubusercontent.com/bpmn-io/bpmn-js/develop/LICENSE",
+      "repository": "bpmn-io/bpmn-js",
+      "reference_commit": "7ac8e3332be43c61dedd2da227d1167eb60f1564",
+      "commit_date": "2026-10-19T09:39:44Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "structurizr",
+      "license": "Apache-2.0 source; prebuilt server EULA separate.",
+      "types": [
+        "C4-context",
+        "C4-container",
+        "C4-component",
+        "landscape",
+        "dynamic",
+        "deployment"
+      ],
+      "cost": "Current local/export commands free; prebuilt server needs a license. No free cloud entitlement assumed.",
+      "docs": [
+        "https://docs.structurizr.com/",
+        "https://c4model.com/diagrams"
+      ],
+      "cost_source": "https://docs.structurizr.com/server/pricing",
+      "repository": "structurizr/structurizr",
+      "reference_commit": "da99caf2f2857e5373f7b58569152274f1725ba3",
+      "commit_date": "2026-10-05T07:29:15Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "diagrams",
+      "license": "MIT code; Graphviz and provider icon licenses separate.",
+      "types": [
+        "cloud",
+        "onprem",
+        "infrastructure",
+        "network"
+      ],
+      "cost": "Free library; Graphviz dependency and local resources required. No hosted quotas inferred.",
+      "docs": [
+        "https://diagrams.mingrammer.com/docs/guides/diagram"
+      ],
+      "cost_source": "https://github.com/mingrammer/diagrams/blob/master/LICENSE",
+      "repository": "mingrammer/diagrams",
+      "reference_commit": "8c1446fbfa4a8d88e5c7bca7101ddc5af7933379",
+      "commit_date": "2026-10-15T13:44:28Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    },
+    {
+      "id": "d2",
+      "license": "MPL-2.0; TALA currently open-source MPL-2.0.",
+      "types": [
+        "nested-architecture",
+        "network",
+        "sequence",
+        "ERD-like"
+      ],
+      "cost": "Current D2 and TALA open-source. Paid historical TALA claims obsolete; hosted services are separate.",
+      "docs": [
+        "https://d2lang.com/tour/exports/",
+        "https://d2lang.com/blog/tala-layouts/"
+      ],
+      "cost_source": "https://github.com/d2lang/d2/blob/master/LICENSE.txt",
+      "repository": "d2lang/d2",
+      "reference_commit": "6a7b4837838a3907604a1d9eec57ee98b6f3cd01",
+      "commit_date": "2026-10-11T23:37:38Z",
+      "checked_at": "2026-10-21",
+      "recheck_conditions": [
+        "before source reuse or execution",
+        "each relevant plugin release",
+        "new upstream or security advisory",
+        "license, pricing, API or renderer change"
+      ],
+      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+    }
+  ],
+  "upstream_code_bundled": false,
+  "native_engine_execution": false
+}

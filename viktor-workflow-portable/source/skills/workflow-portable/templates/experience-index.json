@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "projects": [],
+  "entry_shape": {"project": "project-id", "topic": "analysis", "status": "candidate", "ref": "lessons/lesson-id.json"},
+  "usage": "Store only compact pointers; read relevant accepted lessons before the task. Private records belong in the recipient project, not this distribution."
+}

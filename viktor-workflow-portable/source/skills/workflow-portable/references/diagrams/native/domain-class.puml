@@ -1,0 +1,16 @@
+@startuml
+class Order {
+  +orderId: UUID
+  +status: OrderStatus
+  +submit()
+}
+class OrderLine {
+  +lineNo: Integer
+  +quantity: Decimal
+}
+class Customer {
+  +customerId: UUID
+}
+Customer "1" -- "0..*" Order : places
+Order "1" *-- "1..*" OrderLine : contains
+@enduml
