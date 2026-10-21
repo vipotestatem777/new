@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "name": "viktor-workflow-portable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "sha256": {
     "LICENSE": "949a40eb1992d84e6ae355c9852d7101b59f184eb6756ce0a82c746f84999d79",
-    "PROVENANCE.json": "db796f0392cb2b934ceacf707d9047221fbba68561b5c0d8ba2d698e4ddb4407",
-    "README.md": "ba7ae539ad78f524bc0f346fc08b821d74e5fe8f2fa64bce9d0cf8f060b0472e",
-    "plugin.json": "384adcc5ca4ea37052149c9bffcc8a89f90c7fa3138dcb4f340a513d8990a666",
-    "skills/workflow-portable/SKILL.md": "f8af6b61e51e1f6f8f15f2f3945c83255684bc4b1583fbfc1ea2980189a3f928",
+    "PROVENANCE.json": "baf0213ec56d344b4aa71763b695b5dbc2b1e6f2f71732adc01a2457e3c267a7",
+    "README.md": "0b6e01a01186e4265994cee88d200c0d565c12430014d6bf64eb4e531258c92f",
+    "plugin.json": "42ac2f806ed6309eb839e5c7c359d0ce81128e5965bd64b6122d0d00877fe7b7",
+    "skills/workflow-portable/SKILL.md": "4ccc6632ad7f37803792d4330ef9943f6d5ffc2f4a8e7f09ec84c3c72c2ed186",
     "skills/workflow-portable/references/diagrams/ORIGINAL-TEMPLATES-LICENSE.txt": "99cb4ce79e686e20d374a54016abedf2c4637d70349911d4ab19eed13dca8802",
     "skills/workflow-portable/references/diagrams/exports/bpmn-collaboration.bpmn": "80886ea893d1d052e888e0c84dcaaacf2f8f6f54973ae96c25dbf10d993cc82c",
     "skills/workflow-portable/references/diagrams/exports/bpmn-collaboration.drawio": "53041a615a451925e31be435aa9e942a8acd87ce0425b98c6efc9a992a956ee5",
@@ -43,7 +43,7 @@
     "skills/workflow-portable/references/diagrams/native/secure-network.d2": "25b3b3e66b095be3c7106d93acfe86d9f45c93eff42bf7e8166d00cc7d99ded9",
     "skills/workflow-portable/references/diagrams/native/sequence-retry.puml": "9b47710da546f9a36c009cab2b5925cef9b90f49037b51292643f67f5f4a2f64",
     "skills/workflow-portable/references/diagrams/native/state-order.mmd": "1bd5e072495e77628c21d14d199ac62a891b019efb8ecc1d2ada0c2cf79c69b6",
-    "skills/workflow-portable/references/diagrams/sources.json": "618e83ca1bb254db0833f3a79153f329711a073b3ef9574d59a882df1dbce11c",
+    "skills/workflow-portable/references/diagrams/sources.json": "75f15bd29aa251f4566355e3a772cef9a39d5dd397364e0eb79c878bed228d30",
     "skills/workflow-portable/references/diagrams/templates/bpmn-collaboration.json": "86b5ff14b31581e1c0e03213b86ed9a1f237a36d1e841cedfbe3f3bec49b1d98",
     "skills/workflow-portable/references/diagrams/templates/c4-containers.json": "e24a529030fca2a1470a76fd00dce55959ecfcac4c95e2a5c9f6fb2be8a77316",
     "skills/workflow-portable/references/diagrams/templates/c4-context.json": "615cffd2847f66da4ced251a9f50cf4879ab65831a3cbe58660701fca26da3f1",
@@ -57,10 +57,10 @@
     "skills/workflow-portable/references/diagrams/templates/state-order.json": "978039192dd6fa6f938e9d74c04c4e1d1c1ce0a54e82bb33ae1211b0cd85d7b1",
     "skills/workflow-portable/references/diagrams/templates/trust-dfd.json": "82102c6c40c78d4a4a7fe697ff93c69b53255e6fb50ae83f7f1935b7f5d11a5f",
     "skills/workflow-portable/scripts/diagram_library.py": "a2d64fffd30a551c8ccc05a80d716f3825bf7ae5a092af941e034259aacd7c18",
-    "skills/workflow-portable/templates/analysis.md": "3443f1bfc154f1abf9329e45d3961425f027a1702a878272643d87f3591bc4f4",
+    "skills/workflow-portable/templates/analysis.md": "19b614875e0f1e453f7687def281715e730c4b7d38f04d928c1eb44ee0494b86",
     "skills/workflow-portable/templates/experience-index.json": "22b1f8b74584ee88cbd7ace0163c379ff2d2eef3e501e0d1f2d6811893e81a4b",
     "skills/workflow-portable/templates/lesson.json": "da95222013940ad5e32890913f02436eb4000377e20264c1e63434c8ac85762b",
-    "skills/workflow-portable/templates/recovery.md": "b5ce41c598bd9248dd093ed4b2444fb201d322a24a0a9471b13aac87227a94fe",
+    "skills/workflow-portable/templates/recovery.md": "d2421d5ebfe5d474b2e56e3f977ab437d8cdade28d32fa1e5b290c047e4a8814",
     "verify_package.py": "15b3801bc9537b1d67d378dad7ff37c619ce85a469af0c655d821ca4f3f4af24"
   }
 }

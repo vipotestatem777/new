@@ -4,7 +4,7 @@
   "sources": [
     {
       "id": "drawio",
-      "license": "Apache-2.0 code; icon/stencil terms separate. Desktop repository currently GPL-3.0.",
+      "license": "Код Apache-2.0; умови іконок і трафаретів окремі. Настільний репозиторій на дату перевірки — GPL-3.0.",
       "types": [
         "editable-general",
         "UML-sketch",
@@ -12,7 +12,7 @@
         "network",
         "deployment"
       ],
-      "cost": "Free Desktop and online editor; Confluence/Jira add-ons separate paid/conditional tiers, check current user count.",
+      "cost": "Безкоштовні настільний і вебредактор; додатки Confluence/Jira мають окремі платні або умовні тарифи, перевіряйте поточну кількість користувачів.",
       "docs": [
         "https://www.drawio.com/docs/manual/editor/offline/",
         "https://www.drawio.com/docs/manual/export/export-to-svg/"
@@ -23,12 +23,12 @@
       "commit_date": "2026-10-18T10:53:02Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "mermaid",
@@ -42,7 +42,7 @@
         "gantt",
         "architecture-version-dependent"
       ],
-      "cost": "Free open-source renderer; Mermaid Chart SaaS and host/model costs are separate.",
+      "cost": "Безкоштовний відкритий засіб побудови; Mermaid Chart SaaS і витрати клієнта або моделі обліковуються окремо.",
       "docs": [
         "https://mermaid.js.org/intro/",
         "https://mermaid.js.org/config/security.html"
@@ -53,16 +53,16 @@
       "commit_date": "2026-10-19T15:05:59Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "plantuml",
-      "license": "GPL-3.0 default/source; LGPL/Apache/EPL/MIT builds differ. Check exact artifact. Output follows source authorship.",
+      "license": "Типова ліцензія джерел GPL-3.0; збірки LGPL/Apache/EPL/MIT відрізняються — перевіряйте точний артефакт. Авторство результату визначає його джерело.",
       "types": [
         "UML",
         "sequence",
@@ -72,7 +72,7 @@
         "timing",
         "network"
       ],
-      "cost": "Free local builds; hosted services/integrations are separate.",
+      "cost": "Безкоштовні локальні збірки; розміщені сервіси й інтеграції мають окремі умови.",
       "docs": [
         "https://plantuml.com/faq",
         "https://plantuml.com/security"
@@ -83,22 +83,22 @@
       "commit_date": "2026-10-20T21:21:13Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "bpmn-js",
-      "license": "bpmn.io permissive license with visible watermark condition; not plain MIT.",
+      "license": "Дозвільна ліцензія bpmn.io з умовою видимого водяного знака; не звичайна MIT.",
       "types": [
         "BPMN-2.0-modeler",
         "BPMN-XML",
         "SVG-export"
       ],
-      "cost": "Free toolkit; not an execution engine or a guarantee that hosted products are free.",
+      "cost": "Безкоштовний інструментарій; не є рушієм виконання процесів і не гарантує безкоштовності розміщених продуктів.",
       "docs": [
         "https://bpmn.io/toolkit/bpmn-js/",
         "https://bpmn.io/toolkit/bpmn-js/walkthrough/"
@@ -109,16 +109,16 @@
       "commit_date": "2026-10-19T09:39:44Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "structurizr",
-      "license": "Apache-2.0 source; prebuilt server EULA separate.",
+      "license": "Джерела Apache-2.0; готовий сервер має окрему EULA.",
       "types": [
         "C4-context",
         "C4-container",
@@ -127,7 +127,7 @@
         "dynamic",
         "deployment"
       ],
-      "cost": "Current local/export commands free; prebuilt server needs a license. No free cloud entitlement assumed.",
+      "cost": "Поточні локальні команди й експорт безкоштовні; готовий сервер потребує ліцензії. Безкоштовний хмарний доступ не припускається.",
       "docs": [
         "https://docs.structurizr.com/",
         "https://c4model.com/diagrams"
@@ -138,23 +138,23 @@
       "commit_date": "2026-10-05T07:29:15Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "diagrams",
-      "license": "MIT code; Graphviz and provider icon licenses separate.",
+      "license": "Код MIT; ліцензії Graphviz та іконок постачальників окремі.",
       "types": [
         "cloud",
         "onprem",
         "infrastructure",
         "network"
       ],
-      "cost": "Free library; Graphviz dependency and local resources required. No hosted quotas inferred.",
+      "cost": "Безкоштовна бібліотека; потрібні Graphviz і локальні ресурси. Ліміти сторонніх сервісів не припускаються.",
       "docs": [
         "https://diagrams.mingrammer.com/docs/guides/diagram"
       ],
@@ -164,23 +164,23 @@
       "commit_date": "2026-10-15T13:44:28Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     },
     {
       "id": "d2",
-      "license": "MPL-2.0; TALA currently open-source MPL-2.0.",
+      "license": "MPL-2.0; TALA на дату перевірки відкритий за MPL-2.0.",
       "types": [
         "nested-architecture",
         "network",
         "sequence",
         "ERD-like"
       ],
-      "cost": "Current D2 and TALA open-source. Paid historical TALA claims obsolete; hosted services are separate.",
+      "cost": "Поточні D2 і TALA відкриті. Історичні твердження про платний TALA застаріли; розміщені сервіси мають окремі умови.",
       "docs": [
         "https://d2lang.com/tour/exports/",
         "https://d2lang.com/blog/tala-layouts/"
@@ -191,12 +191,12 @@
       "commit_date": "2026-10-11T23:37:38Z",
       "checked_at": "2026-10-21",
       "recheck_conditions": [
-        "before source reuse or execution",
-        "each relevant plugin release",
-        "new upstream or security advisory",
-        "license, pricing, API or renderer change"
+        "Перед повторним використанням джерел або виконанням",
+        "Під час кожного відповідного випуску плагіна",
+        "За нового повідомлення про вразливість або зміни джерела",
+        "За зміни ліцензії, ціни, API або засобу побудови"
       ],
-      "review_scope": "Primary metadata/license/cost/reference checks; no complete upstream code audit and no runtime install"
+      "review_scope": "Перевірено первинні метадані, ліцензію, вартість і посилання; повного аудиту стороннього коду та встановлення не було."
     }
   ],
   "upstream_code_bundled": false,

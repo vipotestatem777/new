@@ -1,12 +1,12 @@
 {
   "name": "viktor-workflow-portable",
-  "version": "0.1.0",
-  "description": "Generic analysis and delivery core with clean templates and original offline diagrams.",
+  "version": "0.1.1",
+  "description": "Загальний процес аналізу й реалізації з очищеними шаблонами та оригінальними діаграмами без потреби мережі.",
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "Viktor Workflow Portable",
-        "defaultPrompt": "Analyze my task with the smallest useful workflow and evidence."
+        "defaultPrompt": "Проаналізуй мою задачу, обери найменший корисний процес і підтвердь результат доказами."
       }
     }
   }
